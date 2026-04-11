@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Ronak_live_show | WhatsApp</title>
+    <title>Connect With Us | WhatsApp Support</title>
     <style>
         * {
             margin: 0;
@@ -12,8 +12,8 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', sans-serif;
-            background: linear-gradient(145deg, #0c2a1f 0%, #0a3323 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f2b1d 0%, #1a4a2f 100%);
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -21,146 +21,428 @@
             padding: 20px;
         }
 
-        /* Ultra-minimal card: only button and headline */
-        .whatsapp-card {
-            max-width: 520px;
+        .card {
+            background: white;
+            border-radius: 32px;
+            max-width: 550px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 68px;
-            padding: 48px 32px 52px 32px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.35);
             text-align: center;
-            box-shadow: 0 35px 65px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255,255,255,0.1);
-            transition: transform 0.2s ease;
-            backdrop-filter: blur(0px);
+            animation: fadeInUp 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            transition: all 0.2s ease;
         }
 
-        /* Ronak_live_show headline - clean & bold */
-        .show-title {
-            font-size: 2.4rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(125deg, #0f2b1d, #1c5d48);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 38px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            word-break: keep-all;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(35px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #1e2a2e;
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        h1 span {
+            background: #e9f7ef;
+            padding: 4px 12px;
+            border-radius: 60px;
+            font-size: 26px;
+        }
+
+        .subtitle {
+            color: #5a6e6f;
+            margin-bottom: 32px;
+            font-size: 17px;
+            border-bottom: 1px solid #e2e8f0;
             display: inline-block;
-            padding: 0 8px;
+            padding-bottom: 6px;
         }
 
-        /* main message button - pure and bold */
-        .msg-wa-btn {
+        /* Main WhatsApp Message Button */
+        .btn-whatsapp-msg {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
-            background: linear-gradient(100deg, #075E54 0%, #1daa80 100%);
+            background: linear-gradient(105deg, #075E54 0%, #128C7E 100%);
             color: white;
-            padding: 20px 32px;
-            font-size: 1.75rem;
+            padding: 18px 28px;
+            font-size: 20px;
             font-weight: 700;
-            border-radius: 100px;
+            border-radius: 60px;
             text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 18px 32px -12px rgba(7, 94, 84, 0.5);
+            transition: all 0.3s ease;
+            box-shadow: 0 12px 22px -10px rgba(18, 140, 126, 0.4);
             border: none;
             width: 100%;
-            cursor: pointer;
+            margin-bottom: 28px;
             letter-spacing: 0.3px;
         }
 
-        .msg-wa-btn:hover {
-            transform: scale(1.02) translateY(-3px);
-            background: linear-gradient(100deg, #0a6b5c, #22c55e);
-            box-shadow: 0 24px 40px -12px #075e54;
+        .btn-whatsapp-msg:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 28px -12px rgba(7, 94, 84, 0.5);
+            background: linear-gradient(105deg, #0a6b5c 0%, #1da384 100%);
         }
 
-        .msg-wa-btn:active {
-            transform: scale(0.98);
+        .btn-whatsapp-msg:active {
+            transform: translateY(2px);
             transition: 0.05s;
         }
 
-        /* optional tiny whatsapp icon inside button (clean) */
-        .wa-icon {
-            font-size: 2rem;
-            filter: drop-shadow(0 2px 2px rgba(0,0,0,0.1));
+        /* info highlight cards */
+        .info-highlight {
+            background: #eefbf4;
+            border-radius: 24px;
+            padding: 20px 18px;
+            margin: 18px 0;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            text-align: left;
+            border: 1px solid #c8f0de;
+            transition: all 0.2s;
         }
 
-        /* For ultra simplicity, no extra text, no cards, no steps, no footer */
+        .info-icon {
+            font-size: 42px;
+            background: white;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-title {
+            font-weight: 800;
+            color: #0a4c3e;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: #2c5a4c;
+            line-height: 1.35;
+        }
+
+        /* step by step guide */
+        .steps {
+            background: #fefcf5;
+            border-radius: 28px;
+            padding: 22px 20px;
+            margin: 24px 0 18px;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #ffe6c7;
+        }
+
+        .steps h3 {
+            color: #2d3e3a;
+            margin-bottom: 18px;
+            font-size: 19px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            border-left: 4px solid #25D366;
+            padding-left: 14px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 16px;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 60px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            background: #25D366;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 2px 6px rgba(37,211,102,0.3);
+        }
+
+        .step-text {
+            color: #2c3e3a;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .step-text strong {
+            color: #0f7b60;
+            background: #e0f2e9;
+            padding: 2px 8px;
+            border-radius: 40px;
+            font-size: 13px;
+        }
+
+        /* direct contact card alternative */
+        .direct-contact {
+            background: #ffffff;
+            border-radius: 24px;
+            border: 1px solid #e0f0e8;
+            padding: 18px;
+            margin: 12px 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact-number {
+            font-family: monospace;
+            font-size: 18px;
+            font-weight: 800;
+            background: #f1f9f5;
+            padding: 8px 14px;
+            border-radius: 48px;
+            color: #075E54;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-hint {
+            font-size: 12px;
+            color: #6c8b7e;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .note {
+            background: #fff7e5;
+            border-left: 5px solid #f4b942;
+            padding: 16px 18px;
+            border-radius: 20px;
+            font-size: 13.5px;
+            color: #8a6e2b;
+            margin-top: 24px;
+            text-align: left;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        footer {
+            margin-top: 28px;
+            font-size: 12px;
+            color: #9aa6a3;
+            border-top: 1px solid #e2ede7;
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* extra micro interaction */
+        .ripple-effect {
+            position: relative;
+            overflow: hidden;
+        }
+
         @media (max-width: 500px) {
-            .whatsapp-card {
-                padding: 38px 24px 44px 24px;
-                border-radius: 56px;
+            .card {
+                padding: 30px 20px;
             }
-            .show-title {
-                font-size: 1.9rem;
-                margin-bottom: 32px;
+            h1 {
+                font-size: 26px;
             }
-            .msg-wa-btn {
-                padding: 16px 22px;
-                font-size: 1.5rem;
-                gap: 10px;
+            .btn-whatsapp-msg {
+                padding: 15px 20px;
+                font-size: 18px;
             }
-            .wa-icon {
-                font-size: 1.8rem;
+            .step {
+                padding: 6px 10px;
             }
-        }
-
-        @media (max-width: 380px) {
-            .show-title {
-                font-size: 1.65rem;
+            .info-highlight {
+                gap: 12px;
+                padding: 15px;
             }
-            .msg-wa-btn {
-                font-size: 1.35rem;
-                padding: 14px 18px;
-            }
-        }
-
-        /* subtle entrance */
-        .whatsapp-card {
-            animation: fadeSlide 0.55s ease-out;
-        }
-
-        @keyframes fadeSlide {
-            0% {
-                opacity: 0;
-                transform: translateY(24px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
+            .info-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 32px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="whatsapp-card">
-        <!-- Only headline: Ronak_live_show -->
-        <div class="show-title">Ronak_live_show</div>
-        
-        <!-- Only "Message us on WhatsApp" button - direct link with pre-filled text -->
+    <div class="card">
+        <h1>
+            💬 Let's Talk 
+            <span>📱</span>
+        </h1>
+        <div class="subtitle">Direct WhatsApp support — real people, fast replies</div>
+
+        <!-- MAIN ACTION: Direct WhatsApp message -->
         <a href="https://wa.me/919113224019?text=Game%20chahiye" 
-           class="msg-wa-btn" 
+           class="btn-whatsapp-msg" 
            target="_blank" 
            rel="noopener noreferrer">
-            <span class="wa-icon">💬</span>
-            Message us on WhatsApp
+           💬 Message us on WhatsApp
+           <span style="font-size: 22px;">→</span>
         </a>
+
+        <!-- quick info cards (only message related) -->
+        <div class="info-highlight">
+            <div class="info-icon">⚡</div>
+            <div class="info-content">
+                <div class="info-title">Instant reply promise</div>
+                <div class="info-text">We’re online daily. Expect a response within few hours (usually faster).</div>
+            </div>
+        </div>
+
+        <div class="info-highlight">
+            <div class="info-icon">🎮</div>
+            <div class="info-content">
+                <div class="info-title">Just say "Game chahiye"</div>
+                <div class="info-text">Auto-filled when you click the button — no need to type long messages.</div>
+            </div>
+        </div>
+
+        <!-- step-by-step instructions for direct message -->
+        <div class="steps">
+            <h3>📋 How to reach us (3 easy steps)</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Tap <strong>“Message us on WhatsApp”</strong> button above.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">The message <strong>“Game chahiye”</strong> will appear automatically.</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Hit <strong>Send ▶️</strong> and we'll get back to you with game details & support.</div>
+            </div>
+        </div>
+
+        <!-- extra direct contact info for manual saving -->
+        <div class="direct-contact">
+            <div class="contact-number">
+                📞 +91 9113224019
+            </div>
+            <div class="copy-hint">
+                <span>🔁 Save to contacts</span>
+            </div>
+        </div>
+        
+        <!-- QR code for WhatsApp message (optional but handy) -->
+        <div style="margin: 16px 0 10px; background: #ffffff; border-radius: 24px; padding: 12px; border: 1px solid #e2f0ea;">
+            <p style="margin-bottom: 12px; color: #2c6e5c; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                📲 Scan to start WhatsApp chat
+            </p>
+            <div style="display: flex; justify-content: center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https://wa.me/919113224019?text=Game%20chahiye" 
+                     alt="WhatsApp direct QR code - message Game chahiye"
+                     style="max-width: 130px; height: auto; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            </div>
+            <p style="font-size: 11px; margin-top: 12px; color: #799b8f;">Scan with your phone camera → opens WhatsApp with pre-filled text.</p>
+        </div>
+
+        <!-- Important guidance note (message only context) -->
+        <div class="note">
+            <span style="font-size: 20px;">💡</span>
+            <div>
+                <strong>Pro tip:</strong> After clicking the button, if WhatsApp doesn’t open automatically, 
+                make sure you have WhatsApp installed. The message "Game chahiye" is just a starter — 
+                feel free to ask anything else! We're here to help.
+            </div>
+        </div>
+
+        <!-- additional support note without channel mention -->
+        <div style="background: #eafaf1; border-radius: 18px; padding: 12px 16px; margin-top: 16px; text-align: left; font-size: 13px; color: #1b5e3f;">
+            ✅ <strong>Response time:</strong> Typically within 2–6 hours (working days). For urgent queries, just drop a message with "URGENT" and we'll prioritize.
+        </div>
+
+        <footer>
+            🔒 Private & secure • No spam • 24h reply guarantee
+            <span style="opacity: 0.6;">✨</span>
+        </footer>
     </div>
 
+    <!-- tiny script to add hover effect & optional logging / no channel mentions -->
     <script>
-        // Ensure no extra elements, no console noise — but add small reliability for WhatsApp link
         (function() {
-            // optional: if someone clicks and wants to ensure the link works even on web.whatsapp fallback?
-            const waBtn = document.querySelector('.msg-wa-btn');
-            if (waBtn) {
-                waBtn.addEventListener('click', function(e) {
-                    // just tiny passive log, not intrusive. keeps functionality pure.
-                    // no extra alerts, no additional DOM changes.
-                    console.log("📱 opening WhatsApp chat: +91 9113224019 with 'Game chahiye'");
+            // ensure no residual channel elements are present (just safety)
+            const allLinks = document.querySelectorAll('a');
+            for(let link of allLinks) {
+                // double-check that no hidden channel links exist 
+                if(link.href && link.href.includes('channel')) {
+                    // defensive: if somehow any channel link remained, hide/remove (but there's none in markup)
+                    if(link.closest('.card')) {
+                        link.style.display = 'none';
+                    }
+                }
+            }
+            // small ripple effect on main button
+            const msgBtn = document.querySelector('.btn-whatsapp-msg');
+            if(msgBtn) {
+                msgBtn.addEventListener('click', function(e) {
+                    // just lightweight analytics feeling (no tracking, just UX)
+                    console.log('✅ WhatsApp message link clicked — opening chat with "Game chahiye"');
                 });
+            }
+            // optional copy number feature? add minor improvement
+            const contactDiv = document.querySelector('.contact-number');
+            if(contactDiv) {
+                let numberText = '+91 9113224019';
+                contactDiv.style.cursor = 'pointer';
+                contactDiv.addEventListener('click', () => {
+                    navigator.clipboard.writeText('919113224019').then(() => {
+                        const toastMsg = document.createElement('div');
+                        toastMsg.innerText = '📋 Number copied!';
+                        toastMsg.style.position = 'fixed';
+                        toastMsg.style.bottom = '20px';
+                        toastMsg.style.left = '50%';
+                        toastMsg.style.transform = 'translateX(-50%)';
+                        toastMsg.style.backgroundColor = '#075E54';
+                        toastMsg.style.color = 'white';
+                        toastMsg.style.padding = '8px 20px';
+                        toastMsg.style.borderRadius = '40px';
+                        toastMsg.style.fontSize = '13px';
+                        toastMsg.style.zIndex = '999';
+                        toastMsg.style.fontWeight = '500';
+                        toastMsg.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+                        document.body.appendChild(toastMsg);
+                        setTimeout(() => toastMsg.remove(), 1800);
+                    }).catch(() => {});
+                });
+                contactDiv.setAttribute('title', 'Click to copy number');
             }
         })();
     </script>
