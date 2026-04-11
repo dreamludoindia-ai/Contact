@@ -3,63 +3,262 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
+    <title>Connect With Us | Official Channel</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        .container {
-            width: 80%;
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        h2 {
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
             color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
         }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
         .whatsapp-btn {
-            display: block;
-            width: 200px;
-            margin: 20px auto;
-            padding: 12px 20px;
-            background-color: #25D366;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
             color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 5px;
+            border: none;
+            padding: 16px 32px;
+            font-size: 18px;
             font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            width: 100%;
+            margin-bottom: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-decoration: none;
         }
+
         .whatsapp-btn:hover {
-            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
         }
-        .info {
-            text-align: center;
-            margin-top: 20px;
+
+        .steps {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .steps h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding: 8px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            background: #25D366;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .step-text {
             color: #555;
+            font-size: 14px;
+        }
+
+        .step-text strong {
+            color: #25D366;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #856404;
+            margin-top: 20px;
+        }
+
+        .qr-code {
+            margin: 20px 0;
+            padding: 15px;
+            background: white;
+            border-radius: 15px;
+            border: 2px dashed #ddd;
+        }
+
+        .qr-code img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #25D366;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>Have questions? Feel free to reach out via WhatsApp:</p>
-        
+    <div class="card">
+        <div class="icon">
+            📢
+        </div>
+        <h1>Join Our Community</h1>
+        <p class="subtitle">Get updates, tips & exclusive content</p>
+
+        <!-- WhatsApp Channel Button -->
         <a href="https://whatsapp.com/channel/0029Vb8NhV530LKWsdd9bR2S" 
            class="whatsapp-btn" 
            target="_blank">
-           Join WhatsApp Channel
+            <span>💚</span> Join WhatsApp Channel
         </a>
-        
-        <div class="info">
-            <p>Or email us at: <strong>your-email@example.com</strong></p>
+
+        <!-- Step-by-Step Instructions -->
+        <div class="steps">
+            <h3>📋 How to join (3 simple steps)</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Click the <strong>green button</strong> above</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">WhatsApp will open → Tap <strong>"Follow"</strong> button</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">You're in! 🎉 Start receiving updates</div>
+            </div>
         </div>
+
+        <!-- Optional: QR Code for mobile users -->
+        <div class="qr-code">
+            <p style="margin-bottom: 10px; color: #666; font-size: 13px;">📱 Scan to join (Mobile)</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://whatsapp.com/channel/0029Vb8NhV530LKWsdd9bR2S" 
+                 alt="WhatsApp Channel QR Code">
+        </div>
+
+        <!-- Channel Stats (Customize these) -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Updates</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">Free</div>
+                <div class="stat-label">Membership</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">✨</div>
+                <div class="stat-label">Exclusive</div>
+            </div>
+        </div>
+
+        <!-- Important Note -->
+        <div class="note">
+            ⚠️ <strong>Note:</strong> After clicking the link, you'll need to tap the <strong>"Follow"</strong> button manually. 
+            This is a WhatsApp privacy feature to prevent spam.
+        </div>
+
+        <footer>
+            🔒 Secure & Private | No spam ever
+        </footer>
     </div>
 </body>
 </html>
