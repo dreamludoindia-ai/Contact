@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect With Us | WhatsApp Channel & Support</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 25px;
+            max-width: 550px;
+            width: 100%;
+            padding: 40px 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            margin-bottom: 20px;
+            border: none;
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-whatsapp-channel {
+            background: linear-gradient(135deg, #075E54 0%, #128C7E 100%);
+            color: white;
+        }
+
+        .btn-whatsapp-msg {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+
+        /* Section Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 25px 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .divider span {
+            padding: 0 15px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Steps Box */
+        .steps {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .steps h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 8px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .step-number {
+            background: #25D366;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .step-text {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .step-text strong {
+            color: #25D366;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: #e8f5e9;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .info-icon {
+            font-size: 28px;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-title {
+            font-weight: bold;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+
+        .info-text {
+            font-size: 13px;
+            color: #555;
+        }
+
+        .qr-code {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .qr-code img {
+            max-width: 130px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 13px;
+            color: #856404;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        footer {
+            margin-top: 25px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .btn {
+                padding: 14px 20px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>📢 Connect With Us</h1>
+        <p class="subtitle">Choose your preferred way to stay connected</p>
+
+        <!-- Option 1: Join WhatsApp Channel -->
+        <a href="https://whatsapp.com/channel/0029Vb8NhV530LKWsdd9bR2S" 
+           class="btn btn-whatsapp-channel" 
+           target="_blank">
+           📢 Join WhatsApp Channel
+        </a>
+
+        <!-- Option 2: Direct WhatsApp Message -->
+        <a href="https://wa.me/919113224019?text=Game%20chahiye" 
+           class="btn btn-whatsapp-msg" 
+           target="_blank">
+           💬 Message on WhatsApp
+        </a>
+
+        <!-- Divider with info -->
+        <div class="divider">
+            <span>⚡ Quick Info</span>
+        </div>
+
+        <!-- Information Cards -->
+        <div class="info-card">
+            <div class="info-icon">📢</div>
+            <div class="info-content">
+                <div class="info-title">Join Channel</div>
+                <div class="info-text">Get daily updates, news & announcements</div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-icon">💬</div>
+            <div class="info-content">
+                <div class="info-title">Direct Message</div>
+                <div class="info-text">Message "Game chahiye" to +91 9113224019</div>
+            </div>
+        </div>
+
+        <!-- How to Use Steps -->
+        <div class="steps">
+            <h3>📋 For Direct Message:</h3>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Click <strong>"Message on WhatsApp"</strong> button</div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">Message <strong>"Game chahiye"</strong> will auto-fill</div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Tap <strong>Send</strong> - We'll reply ASAP! 🎮</div>
+            </div>
+        </div>
+
+        <!-- QR Code for Channel -->
+        <div class="qr-code">
+            <p style="margin-bottom: 10px; color: #666; font-size: 13px;">📱 Scan to join WhatsApp Channel</p>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://whatsapp.com/channel/0029Vb8NhV530LKWsdd9bR2S" 
+                 alt="WhatsApp Channel QR Code">
+        </div>
+
+        <!-- Important Note -->
+        <div class="note">
+            💡 <strong>Note:</strong> 
+            <br>• Channel: After clicking link, tap <strong>"Follow"</strong> to join
+            <br>• Message: Chat opens with pre-filled "Game chahiye" - just hit send!
+        </div>
+
+        <footer>
+            🔒 Secure & Private | Response within 24 hours
+        </footer>
+    </div>
+</body>
+</html>
