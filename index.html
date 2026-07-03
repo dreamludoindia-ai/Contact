@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pay Now - Savitha K</title>
+    <title>Pay - Savitha K</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -13,12 +13,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 16px;
         }
         .container {
             background: white;
             border-radius: 24px;
-            padding: 35px 25px 40px;
+            padding: 30px 20px 35px;
             max-width: 400px;
             width: 100%;
             box-shadow: 0 20px 60px rgba(26, 67, 113, 0.15);
@@ -32,8 +32,8 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, #00baf2, #1a73e8, #0d47a1);
+            height: 5px;
+            background: linear-gradient(90deg, #1a73e8, #00baf2, #1a73e8);
             background-size: 200% 100%;
             animation: shimmer 2s infinite linear;
         }
@@ -42,126 +42,148 @@
             100% { background-position: 200% 0; }
         }
         .logo {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #00baf2, #1a73e8);
-            border-radius: 18px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 32px;
+            margin: 0 auto 16px;
+            font-size: 28px;
             color: white;
-            font-weight: bold;
             box-shadow: 0 8px 25px rgba(26, 67, 113, 0.3);
         }
-        h1 { font-size: 22px; color: #1a2332; margin-bottom: 5px; font-weight: 600; }
-        .subtitle { color: #5f6b7a; font-size: 14px; margin-bottom: 20px; }
+        h1 { font-size: 20px; color: #1a2332; font-weight: 600; }
+        .subtitle { color: #5f6b7a; font-size: 13px; margin-bottom: 18px; }
         .merchant-box {
             background: #f8faff;
-            border-radius: 14px;
-            padding: 15px;
-            margin-bottom: 25px;
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 20px;
             border: 1px solid #e8edf5;
         }
-        .merchant-box .label { font-size: 12px; color: #8a94a6; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
-        .merchant-box .name { font-size: 18px; font-weight: 600; color: #1a2332; margin-top: 3px; }
-        .merchant-box .upi-id { font-size: 12px; color: #5f6b7a; background: #eef3fc; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-top: 6px; font-family: monospace; word-break: break-all; }
+        .merchant-box .label { font-size: 11px; color: #8a94a6; text-transform: uppercase; font-weight: 600; }
+        .merchant-box .name { font-size: 17px; font-weight: 600; color: #1a2332; margin-top: 2px; }
+        .merchant-box .upi-id { font-size: 11px; color: #5f6b7a; background: #eef3fc; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-top: 4px; font-family: monospace; word-break: break-all; }
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
         .amount-section {
             background: #f0f7ff;
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 25px;
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
             border: 2px dashed #b3cff5;
         }
-        .amount-section .label { font-size: 13px; color: #5f6b7a; font-weight: 500; }
-        .amount-section .amount { font-size: 42px; font-weight: 700; color: #0d47a1; margin: 5px 0; }
-        .amount-section .amount span { font-size: 24px; font-weight: 500; }
-        .order-id { font-size: 12px; color: #8a94a6; margin-top: 3px; }
+        .amount-section .label { font-size: 12px; color: #5f6b7a; font-weight: 500; }
+        .amount-section .amount { font-size: 36px; font-weight: 700; color: #0d47a1; margin: 2px 0; }
+        .amount-section .amount span { font-size: 20px; font-weight: 500; }
+        .order-id { font-size: 11px; color: #8a94a6; margin-top: 2px; }
         .pay-btn {
             width: 100%;
-            padding: 16px;
-            font-size: 18px;
+            padding: 14px;
+            font-size: 17px;
             font-weight: 600;
             color: white;
-            background: linear-gradient(135deg, #00baf2, #1a73e8);
+            background: linear-gradient(135deg, #1a73e8, #0d47a1);
             border: none;
-            border-radius: 14px;
+            border-radius: 12px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 30px rgba(26, 67, 113, 0.3);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
-        .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(26, 67, 113, 0.4); }
         .pay-btn:active { transform: scale(0.97); }
-        .divider { display: flex; align-items: center; gap: 15px; margin: 20px 0; color: #b0bcca; font-size: 12px; }
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 16px 0;
+            color: #b0bcca;
+            font-size: 11px;
+        }
         .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e0e6ef; }
-        .app-buttons {
+        .app-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
+            gap: 8px;
         }
         .app-btn {
-            padding: 12px 8px;
+            padding: 10px 6px;
             border: 2px solid #e8edf5;
-            border-radius: 12px;
+            border-radius: 10px;
             background: white;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             color: #1a2332;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 3px;
         }
-        .app-btn:hover { border-color: #1a73e8; background: #f8faff; transform: scale(1.02); }
-        .app-btn:active { transform: scale(0.95); }
-        .app-btn .icon { font-size: 24px; }
-        .footer { margin-top: 25px; font-size: 12px; color: #b0bcca; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .footer span { display: flex; align-items: center; gap: 5px; }
+        .app-btn:active { transform: scale(0.95); background: #f0f4ff; }
+        .app-btn .icon { font-size: 22px; }
+        .upi-box {
+            margin-top: 16px;
+            background: #f0f4ff;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e0e6ef;
+        }
+        .upi-box .upi-text {
+            font-family: monospace;
+            font-size: 11px;
+            word-break: break-all;
+            color: #1a2332;
+        }
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #1a73e8;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        .footer { margin-top: 18px; font-size: 11px; color: #b0bcca; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
         .toast {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             background: #1a2332;
             color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 13px;
             display: none;
             z-index: 999;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 90%;
         }
         .toast.show { display: block; animation: slideUp 0.3s ease; }
         @keyframes slideUp {
             from { transform: translateX(-50%) translateY(20px); opacity: 0; }
             to { transform: translateX(-50%) translateY(0); opacity: 1; }
         }
-        .upi-id-text {
-            font-family: monospace;
-            word-break: break-all;
-            background: #f0f4ff;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 12px;
-            color: #1a2332;
-            margin: 10px 0;
-            border: 1px solid #e0e6ef;
-        }
-        .copy-btn { background: none; border: none; color: #1a73e8; cursor: pointer; font-size: 13px; font-weight: 500; }
-        .copy-btn:hover { text-decoration: underline; }
-        .badge {
-            display: inline-block;
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            margin-top: 5px;
+        .note { 
+            font-size: 11px; 
+            color: #e53935; 
+            background: #ffebee; 
+            padding: 8px 12px; 
+            border-radius: 8px; 
+            margin-top: 12px;
+            border-left: 3px solid #e53935;
         }
     </style>
 </head>
@@ -185,11 +207,12 @@
         <div class="order-id">Order #fTrJCT66776959738303</div>
     </div>
 
+    <!-- MAIN PAY BUTTON - Uses app-specific deep links -->
     <button class="pay-btn" id="payBtn">🔵 Pay ₹1.00 via UPI</button>
 
     <div class="divider">Quick Pay</div>
 
-    <div class="app-buttons">
+    <div class="app-grid">
         <button class="app-btn" onclick="payWith('gpay')"><span class="icon">🔵</span>GPay</button>
         <button class="app-btn" onclick="payWith('phonepe')"><span class="icon">💜</span>PhonePe</button>
         <button class="app-btn" onclick="payWith('paytm')"><span class="icon">💙</span>Paytm</button>
@@ -198,9 +221,13 @@
         <button class="app-btn" onclick="copyUPI()"><span class="icon">📋</span>Copy UPI</button>
     </div>
 
-    <div style="margin-top: 20px;">
-        <div class="upi-id-text" id="upiDisplay">paytmqr2810050501011r80bazrbfpc@paytm</div>
+    <div class="upi-box">
+        <div class="upi-text">paytmqr2810050501011r80bazrbfpc@paytm</div>
         <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
+    </div>
+
+    <div class="note">
+        ⚠️ If payment fails, scan the QR code from your UPI app or copy the UPI ID above.
     </div>
 
     <div class="footer">
@@ -222,16 +249,31 @@
         description: 'Payment for Order fTrJCT66776959738303'
     };
 
-    function buildUPIUrl(app) {
-        let scheme = 'upi://pay';
+    // Build APP-SPECIFIC deep links (NOT generic upi://pay)
+    function buildDeepLink(app) {
+        let scheme = '';
         let base = `?pa=${CONFIG.vpa}&pn=${encodeURIComponent(CONFIG.name)}&am=${CONFIG.amount}&cu=${CONFIG.currency}&tr=${CONFIG.orderId}&tn=${encodeURIComponent(CONFIG.description)}`;
+
         switch(app) {
-            case 'gpay': scheme = 'tez://upi/pay'; break;
-            case 'phonepe': scheme = 'phonepe://upi/pay'; break;
-            case 'paytm': scheme = 'paytmmp://upi/pay'; break;
-            case 'whatsapp': scheme = 'whatsapp://upi/pay'; break;
-            case 'amazon': scheme = 'amazonpay://upi/pay'; break;
-            default: scheme = 'upi://pay';
+            case 'gpay':
+                scheme = 'tez://upi/pay';  // Google Pay uses tez:// scheme
+                break;
+            case 'phonepe':
+                scheme = 'phonepe://upi/pay';
+                break;
+            case 'paytm':
+                scheme = 'paytmmp://upi/pay';
+                break;
+            case 'whatsapp':
+                scheme = 'whatsapp://upi/pay';
+                break;
+            case 'amazon':
+                scheme = 'amazonpay://upi/pay';
+                break;
+            case 'generic':
+            default:
+                // Use app-specific fallback - try GPay first as most common
+                scheme = 'tez://upi/pay';
         }
         return scheme + base;
     }
@@ -240,14 +282,19 @@
         let toast = document.getElementById('toast');
         toast.textContent = msg;
         toast.className = 'toast show';
-        setTimeout(() => { toast.className = 'toast'; }, 3500);
+        clearTimeout(toast._timer);
+        toast._timer = setTimeout(() => { toast.className = 'toast'; }, 3500);
     }
 
     function copyUPI() {
         let text = CONFIG.vpa;
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(() => showToast('✅ UPI ID copied!')).catch(() => fallbackCopy(text));
-        } else { fallbackCopy(text); }
+            navigator.clipboard.writeText(text)
+                .then(() => showToast('✅ UPI ID copied!'))
+                .catch(() => fallbackCopy(text));
+        } else {
+            fallbackCopy(text);
+        }
     }
 
     function fallbackCopy(text) {
@@ -257,28 +304,87 @@
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
         textarea.select();
-        try { document.execCommand('copy'); showToast('✅ UPI ID copied!'); } catch(e) { showToast('❌ Copy manually'); }
+        try {
+            document.execCommand('copy');
+            showToast('✅ UPI ID copied!');
+        } catch(e) {
+            showToast('❌ Please copy manually');
+        }
         document.body.removeChild(textarea);
     }
 
     function payWith(app) {
-        let url = buildUPIUrl(app);
-        let appNames = { 'gpay': 'Google Pay', 'phonepe': 'PhonePe', 'paytm': 'Paytm', 'whatsapp': 'WhatsApp', 'amazon': 'Amazon Pay' };
+        let url = buildDeepLink(app);
+        let appNames = {
+            'gpay': 'Google Pay',
+            'phonepe': 'PhonePe',
+            'paytm': 'Paytm',
+            'whatsapp': 'WhatsApp Pay',
+            'amazon': 'Amazon Pay'
+        };
+        
         showToast(`Opening ${appNames[app] || 'UPI'}...`);
-        try { window.location.href = url; } catch(e) { showToast('❌ Please install UPI app'); }
-        setTimeout(() => showToast(`💡 Pay to: ${CONFIG.vpa}`), 3000);
+        
+        // Method 1: Direct navigation
+        try {
+            window.location.href = url;
+        } catch(e) {
+            // Method 2: Try with iframe (for some browsers)
+            try {
+                let iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = url;
+                document.body.appendChild(iframe);
+                setTimeout(() => document.body.removeChild(iframe), 3000);
+            } catch(e2) {
+                showToast('❌ Please install the UPI app');
+            }
+        }
+        
+        // Fallback message
+        setTimeout(() => {
+            showToast(`💡 Pay ₹${CONFIG.amount} to: ${CONFIG.vpa}`);
+        }, 3000);
     }
 
+    // Main Pay button - tries GPay first, then PhonePe, then Paytm
     document.getElementById('payBtn').addEventListener('click', function() {
-        let url = buildUPIUrl('generic');
-        showToast('Opening UPI app...');
-        try { window.location.href = url; } catch(e) { showToast('❌ Please install a UPI app'); }
-        setTimeout(() => showToast(`💡 Pay ₹${CONFIG.amount} to ${CONFIG.vpa}`), 3000);
+        let apps = ['gpay', 'phonepe', 'paytm'];
+        let attempted = 0;
+        
+        function tryNext() {
+            if (attempted >= apps.length) {
+                showToast('❌ No UPI app found. Please install GPay/PhonePe/Paytm');
+                return;
+            }
+            let app = apps[attempted];
+            let url = buildDeepLink(app);
+            let appNames = { 'gpay': 'Google Pay', 'phonepe': 'PhonePe', 'paytm': 'Paytm' };
+            showToast(`Opening ${appNames[app]}...`);
+            
+            try {
+                window.location.href = url;
+            } catch(e) {
+                attempted++;
+                setTimeout(tryNext, 500);
+            }
+        }
+        tryNext();
+        
+        // Fallback: show UPI ID after 4 seconds
+        setTimeout(() => {
+            showToast(`💡 Pay ₹${CONFIG.amount} to: ${CONFIG.vpa}`);
+        }, 4000);
     });
 
+    // Detect platform
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        showToast('📱 iOS: Use GPay/PhonePe buttons');
+        showToast('📱 iOS: Use GPay or PhonePe buttons');
     }
+
+    console.log('UPI Deep Link Payment Page');
+    console.log('VPA:', CONFIG.vpa);
+    console.log('Amount: ₹' + CONFIG.amount);
 </script>
 </body>
 </html>
