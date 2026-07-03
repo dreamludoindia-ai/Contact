@@ -3,13 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pay Now - Ganesh Siddharth Patil</title>
+    <title>Pay Now - Savitha K</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
             background: linear-gradient(145deg, #f0f4ff 0%, #e6edff 100%);
@@ -37,7 +33,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, #1a73e8, #0d47a1, #1a73e8);
+            background: linear-gradient(90deg, #00baf2, #1a73e8, #0d47a1);
             background-size: 200% 100%;
             animation: shimmer 2s infinite linear;
         }
@@ -48,7 +44,7 @@
         .logo {
             width: 70px;
             height: 70px;
-            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            background: linear-gradient(135deg, #00baf2, #1a73e8);
             border-radius: 18px;
             display: flex;
             align-items: center;
@@ -59,17 +55,8 @@
             font-weight: bold;
             box-shadow: 0 8px 25px rgba(26, 67, 113, 0.3);
         }
-        h1 {
-            font-size: 22px;
-            color: #1a2332;
-            margin-bottom: 5px;
-            font-weight: 600;
-        }
-        .subtitle {
-            color: #5f6b7a;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
+        h1 { font-size: 22px; color: #1a2332; margin-bottom: 5px; font-weight: 600; }
+        .subtitle { color: #5f6b7a; font-size: 14px; margin-bottom: 20px; }
         .merchant-box {
             background: #f8faff;
             border-radius: 14px;
@@ -77,29 +64,9 @@
             margin-bottom: 25px;
             border: 1px solid #e8edf5;
         }
-        .merchant-box .label {
-            font-size: 12px;
-            color: #8a94a6;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 600;
-        }
-        .merchant-box .name {
-            font-size: 18px;
-            font-weight: 600;
-            color: #1a2332;
-            margin-top: 3px;
-        }
-        .merchant-box .upi-id {
-            font-size: 13px;
-            color: #5f6b7a;
-            background: #eef3fc;
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 6px;
-            font-family: monospace;
-        }
+        .merchant-box .label { font-size: 12px; color: #8a94a6; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; }
+        .merchant-box .name { font-size: 18px; font-weight: 600; color: #1a2332; margin-top: 3px; }
+        .merchant-box .upi-id { font-size: 12px; color: #5f6b7a; background: #eef3fc; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-top: 6px; font-family: monospace; word-break: break-all; }
         .amount-section {
             background: #f0f7ff;
             border-radius: 14px;
@@ -107,80 +74,31 @@
             margin-bottom: 25px;
             border: 2px dashed #b3cff5;
         }
-        .amount-section .label {
-            font-size: 13px;
-            color: #5f6b7a;
-            font-weight: 500;
-        }
-        .amount-section .amount {
-            font-size: 42px;
-            font-weight: 700;
-            color: #0d47a1;
-            margin: 5px 0;
-        }
-        .amount-section .amount span {
-            font-size: 24px;
-            font-weight: 500;
-        }
-        .order-id {
-            font-size: 12px;
-            color: #8a94a6;
-            margin-top: 3px;
-        }
+        .amount-section .label { font-size: 13px; color: #5f6b7a; font-weight: 500; }
+        .amount-section .amount { font-size: 42px; font-weight: 700; color: #0d47a1; margin: 5px 0; }
+        .amount-section .amount span { font-size: 24px; font-weight: 500; }
+        .order-id { font-size: 12px; color: #8a94a6; margin-top: 3px; }
         .pay-btn {
             width: 100%;
             padding: 16px;
             font-size: 18px;
             font-weight: 600;
             color: white;
-            background: linear-gradient(135deg, #1a73e8, #0d47a1);
+            background: linear-gradient(135deg, #00baf2, #1a73e8);
             border: none;
             border-radius: 14px;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 8px 30px rgba(26, 67, 113, 0.3);
             margin-bottom: 15px;
-            position: relative;
-            overflow: hidden;
         }
-        .pay-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 40px rgba(26, 67, 113, 0.4);
-        }
-        .pay-btn:active {
-            transform: scale(0.97);
-        }
-        .pay-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            animation: btnShine 3s infinite;
-        }
-        @keyframes btnShine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 20px 0;
-            color: #b0bcca;
-            font-size: 12px;
-        }
-        .divider::before, .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e0e6ef;
-        }
+        .pay-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(26, 67, 113, 0.4); }
+        .pay-btn:active { transform: scale(0.97); }
+        .divider { display: flex; align-items: center; gap: 15px; margin: 20px 0; color: #b0bcca; font-size: 12px; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e0e6ef; }
         .app-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 10px;
         }
         .app-btn {
@@ -190,7 +108,7 @@
             background: white;
             cursor: pointer;
             transition: all 0.2s;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 500;
             color: #1a2332;
             display: flex;
@@ -198,31 +116,11 @@
             align-items: center;
             gap: 4px;
         }
-        .app-btn:hover {
-            border-color: #1a73e8;
-            background: #f8faff;
-            transform: scale(1.02);
-        }
-        .app-btn:active {
-            transform: scale(0.95);
-        }
-        .app-btn .icon {
-            font-size: 28px;
-        }
-        .footer {
-            margin-top: 25px;
-            font-size: 12px;
-            color: #b0bcca;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .footer span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+        .app-btn:hover { border-color: #1a73e8; background: #f8faff; transform: scale(1.02); }
+        .app-btn:active { transform: scale(0.95); }
+        .app-btn .icon { font-size: 24px; }
+        .footer { margin-top: 25px; font-size: 12px; color: #b0bcca; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .footer span { display: flex; align-items: center; gap: 5px; }
         .toast {
             position: fixed;
             bottom: 30px;
@@ -237,10 +135,7 @@
             z-index: 999;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
-        .toast.show {
-            display: block;
-            animation: slideUp 0.3s ease;
-        }
+        .toast.show { display: block; animation: slideUp 0.3s ease; }
         @keyframes slideUp {
             from { transform: translateX(-50%) translateY(20px); opacity: 0; }
             to { transform: translateX(-50%) translateY(0); opacity: 1; }
@@ -251,81 +146,60 @@
             background: #f0f4ff;
             padding: 10px;
             border-radius: 8px;
-            font-size: 13px;
+            font-size: 12px;
             color: #1a2332;
             margin: 10px 0;
             border: 1px solid #e0e6ef;
         }
-        .copy-btn {
-            background: none;
-            border: none;
-            color: #1a73e8;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .copy-btn:hover {
-            text-decoration: underline;
+        .copy-btn { background: none; border: none; color: #1a73e8; cursor: pointer; font-size: 13px; font-weight: 500; }
+        .copy-btn:hover { text-decoration: underline; }
+        .badge {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="logo">💰</div>
+    <div class="logo">💳</div>
     <h1>Pay Now</h1>
     <p class="subtitle">Complete your payment securely</p>
 
     <div class="merchant-box">
         <div class="label">Receiving To</div>
-        <div class="name">Ganesh Siddharth Patil</div>
-        <div class="upi-id">s0078204513092824@slc</div>
+        <div class="name">Savitha K</div>
+        <div class="upi-id">paytmqr2810050501011r80bazrbfpc@paytm</div>
+        <span class="badge">✅ Merchant Verified</span>
     </div>
 
     <div class="amount-section">
         <div class="label">Amount</div>
         <div class="amount"><span>₹</span> 1.00</div>
-        <div class="order-id">Order #1234</div>
+        <div class="order-id">Order #fTrJCT66776959738303</div>
     </div>
 
-    <!-- Main Pay Button -->
-    <button class="pay-btn" id="payBtn">
-        🔵 Pay ₹1.00 via UPI
-    </button>
+    <button class="pay-btn" id="payBtn">🔵 Pay ₹1.00 via UPI</button>
 
-    <div class="divider">OR</div>
+    <div class="divider">Quick Pay</div>
 
     <div class="app-buttons">
-        <button class="app-btn" onclick="payWith('gpay')">
-            <span class="icon">🔵</span>
-            Google Pay
-        </button>
-        <button class="app-btn" onclick="payWith('phonepe')">
-            <span class="icon">💜</span>
-            PhonePe
-        </button>
-        <button class="app-btn" onclick="payWith('paytm')">
-            <span class="icon">💙</span>
-            Paytm
-        </button>
-        <button class="app-btn" onclick="payWith('whatsapp')">
-            <span class="icon">💚</span>
-            WhatsApp Pay
-        </button>
-        <button class="app-btn" onclick="payWith('amazon')">
-            <span class="icon">🟠</span>
-            Amazon Pay
-        </button>
-        <button class="app-btn" onclick="copyUPI()">
-            <span class="icon">📋</span>
-            Copy UPI ID
-        </button>
+        <button class="app-btn" onclick="payWith('gpay')"><span class="icon">🔵</span>GPay</button>
+        <button class="app-btn" onclick="payWith('phonepe')"><span class="icon">💜</span>PhonePe</button>
+        <button class="app-btn" onclick="payWith('paytm')"><span class="icon">💙</span>Paytm</button>
+        <button class="app-btn" onclick="payWith('whatsapp')"><span class="icon">💚</span>WhatsApp</button>
+        <button class="app-btn" onclick="payWith('amazon')"><span class="icon">🟠</span>Amazon</button>
+        <button class="app-btn" onclick="copyUPI()"><span class="icon">📋</span>Copy UPI</button>
     </div>
 
     <div style="margin-top: 20px;">
-        <div class="upi-id-text" id="upiDisplay">
-            s0078204513092824@slc
-        </div>
+        <div class="upi-id-text" id="upiDisplay">paytmqr2810050501011r80bazrbfpc@paytm</div>
         <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
     </div>
 
@@ -336,77 +210,44 @@
     </div>
 </div>
 
-<!-- Toast Notification -->
 <div class="toast" id="toast"></div>
 
 <script>
-    // Configuration
     const CONFIG = {
-        vpa: 's0078204513092824@slc',
-        name: 'Ganesh Siddharth Patil',
+        vpa: 'paytmqr2810050501011r80bazrbfpc@paytm',
+        name: 'Savitha K',
         amount: '1.00',
         currency: 'INR',
-        orderId: '1234',
-        description: 'Payment for Order 1234'
+        orderId: 'fTrJCT66776959738303',
+        description: 'Payment for Order fTrJCT66776959738303'
     };
 
-    // Build UPI URL
     function buildUPIUrl(app) {
         let scheme = 'upi://pay';
-        let vpa = CONFIG.vpa;
-        let name = encodeURIComponent(CONFIG.name);
-        let amount = CONFIG.amount;
-        let currency = CONFIG.currency;
-        let order = CONFIG.orderId;
-        let desc = encodeURIComponent(CONFIG.description);
-
-        let base = `?pa=${vpa}&pn=${name}&am=${amount}&cu=${currency}&tr=${order}&tn=${desc}`;
-
+        let base = `?pa=${CONFIG.vpa}&pn=${encodeURIComponent(CONFIG.name)}&am=${CONFIG.amount}&cu=${CONFIG.currency}&tr=${CONFIG.orderId}&tn=${encodeURIComponent(CONFIG.description)}`;
         switch(app) {
-            case 'gpay':
-                scheme = 'tez://upi/pay';
-                break;
-            case 'phonepe':
-                scheme = 'phonepe://upi/pay';
-                break;
-            case 'paytm':
-                scheme = 'paytmmp://upi/pay';
-                break;
-            case 'whatsapp':
-                scheme = 'whatsapp://upi/pay';
-                break;
-            case 'amazon':
-                scheme = 'amazonpay://upi/pay';
-                break;
-            default:
-                scheme = 'upi://pay';
+            case 'gpay': scheme = 'tez://upi/pay'; break;
+            case 'phonepe': scheme = 'phonepe://upi/pay'; break;
+            case 'paytm': scheme = 'paytmmp://upi/pay'; break;
+            case 'whatsapp': scheme = 'whatsapp://upi/pay'; break;
+            case 'amazon': scheme = 'amazonpay://upi/pay'; break;
+            default: scheme = 'upi://pay';
         }
-
         return scheme + base;
     }
 
-    // Show toast message
     function showToast(msg) {
         let toast = document.getElementById('toast');
         toast.textContent = msg;
         toast.className = 'toast show';
-        setTimeout(() => {
-            toast.className = 'toast';
-        }, 3000);
+        setTimeout(() => { toast.className = 'toast'; }, 3500);
     }
 
-    // Copy UPI ID
     function copyUPI() {
         let text = CONFIG.vpa;
         if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text).then(() => {
-                showToast('✅ UPI ID copied to clipboard!');
-            }).catch(() => {
-                fallbackCopy(text);
-            });
-        } else {
-            fallbackCopy(text);
-        }
+            navigator.clipboard.writeText(text).then(() => showToast('✅ UPI ID copied!')).catch(() => fallbackCopy(text));
+        } else { fallbackCopy(text); }
     }
 
     function fallbackCopy(text) {
@@ -416,87 +257,28 @@
         textarea.style.opacity = '0';
         document.body.appendChild(textarea);
         textarea.select();
-        try {
-            document.execCommand('copy');
-            showToast('✅ UPI ID copied to clipboard!');
-        } catch (e) {
-            showToast('❌ Failed to copy. Please copy manually.');
-        }
+        try { document.execCommand('copy'); showToast('✅ UPI ID copied!'); } catch(e) { showToast('❌ Copy manually'); }
         document.body.removeChild(textarea);
     }
 
-    // Pay with selected app
     function payWith(app) {
         let url = buildUPIUrl(app);
-        let appName = {
-            'gpay': 'Google Pay',
-            'phonepe': 'PhonePe',
-            'paytm': 'Paytm',
-            'whatsapp': 'WhatsApp Pay',
-            'amazon': 'Amazon Pay'
-        }[app] || 'UPI';
-
-        showToast(`Opening ${appName}...`);
-
-        // Try to open the URL
-        if (navigator.userAgent.includes('Instagram') || navigator.userAgent.includes('FBAN')) {
-            showToast('❌ Open this page in Chrome browser');
-            return;
-        }
-
-        // Method 1: Try with window.location
-        try {
-            window.location.href = url;
-        } catch (e) {
-            // Method 2: Try with iframe
-            try {
-                let iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = url;
-                document.body.appendChild(iframe);
-                setTimeout(() => document.body.removeChild(iframe), 3000);
-            } catch (e2) {
-                showToast('❌ Could not open. Please copy UPI ID and pay manually.');
-            }
-        }
-
-        // Fallback: If it doesn't open, show UPI ID
-        setTimeout(() => {
-            showToast(`💡 If app didn't open, pay to: ${CONFIG.vpa}`);
-        }, 2000);
+        let appNames = { 'gpay': 'Google Pay', 'phonepe': 'PhonePe', 'paytm': 'Paytm', 'whatsapp': 'WhatsApp', 'amazon': 'Amazon Pay' };
+        showToast(`Opening ${appNames[app] || 'UPI'}...`);
+        try { window.location.href = url; } catch(e) { showToast('❌ Please install UPI app'); }
+        setTimeout(() => showToast(`💡 Pay to: ${CONFIG.vpa}`), 3000);
     }
 
-    // Main Pay button - opens app chooser
     document.getElementById('payBtn').addEventListener('click', function() {
         let url = buildUPIUrl('generic');
         showToast('Opening UPI app...');
-
-        try {
-            window.location.href = url;
-        } catch(e) {
-            showToast('❌ Please install a UPI app like GPay/PhonePe/Paytm');
-        }
-
-        setTimeout(() => {
-            showToast(`💡 Pay to: ${CONFIG.vpa} (₹${CONFIG.amount})`);
-        }, 2500);
+        try { window.location.href = url; } catch(e) { showToast('❌ Please install a UPI app'); }
+        setTimeout(() => showToast(`💡 Pay ₹${CONFIG.amount} to ${CONFIG.vpa}`), 3000);
     });
 
-    // Detect if on iOS
     if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        showToast('📱 iOS: Use Google Pay or PhonePe buttons');
-        document.getElementById('payBtn').textContent = '🔵 Pay ₹1.00 via UPI (iOS)';
+        showToast('📱 iOS: Use GPay/PhonePe buttons');
     }
-
-    // Detect if on Android WebView
-    if (navigator.userAgent.includes('wv') || navigator.userAgent.includes('WebView')) {
-        showToast('⚠️ WebView detected - use Chrome browser for best results');
-    }
-
-    console.log('UPI Payment Page Loaded!');
-    console.log('VPA:', CONFIG.vpa);
-    console.log('Amount: ₹' + CONFIG.amount);
 </script>
-
 </body>
 </html>
