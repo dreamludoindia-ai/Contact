@@ -2,389 +2,131 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Pay - Savitha K</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech in Market - Direct UPI Gateway Test</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
-            background: linear-gradient(145deg, #f0f4ff 0%, #e6edff 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 16px;
-        }
-        .container {
-            background: white;
-            border-radius: 24px;
-            padding: 30px 20px 35px;
-            max-width: 400px;
-            width: 100%;
-            box-shadow: 0 20px 60px rgba(26, 67, 113, 0.15);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, #1a73e8, #00baf2, #1a73e8);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite linear;
-        }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .logo {
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #1a73e8, #0d47a1);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            font-size: 28px;
-            color: white;
-            box-shadow: 0 8px 25px rgba(26, 67, 113, 0.3);
-        }
-        h1 { font-size: 20px; color: #1a2332; font-weight: 600; }
-        .subtitle { color: #5f6b7a; font-size: 13px; margin-bottom: 18px; }
-        .merchant-box {
-            background: #f8faff;
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 20px;
-            border: 1px solid #e8edf5;
-        }
-        .merchant-box .label { font-size: 11px; color: #8a94a6; text-transform: uppercase; font-weight: 600; }
-        .merchant-box .name { font-size: 17px; font-weight: 600; color: #1a2332; margin-top: 2px; }
-        .merchant-box .upi-id { font-size: 11px; color: #5f6b7a; background: #eef3fc; padding: 3px 10px; border-radius: 20px; display: inline-block; margin-top: 4px; font-family: monospace; word-break: break-all; }
-        .badge {
-            display: inline-block;
-            background: #e8f5e9;
-            color: #2e7d32;
-            padding: 2px 12px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 600;
-            margin-top: 4px;
-        }
-        .amount-section {
-            background: #f0f7ff;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 20px;
-            border: 2px dashed #b3cff5;
-        }
-        .amount-section .label { font-size: 12px; color: #5f6b7a; font-weight: 500; }
-        .amount-section .amount { font-size: 36px; font-weight: 700; color: #0d47a1; margin: 2px 0; }
-        .amount-section .amount span { font-size: 20px; font-weight: 500; }
-        .order-id { font-size: 11px; color: #8a94a6; margin-top: 2px; }
-        .pay-btn {
-            width: 100%;
-            padding: 14px;
-            font-size: 17px;
-            font-weight: 600;
-            color: white;
-            background: linear-gradient(135deg, #1a73e8, #0d47a1);
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(26, 67, 113, 0.3);
-            margin-bottom: 12px;
-        }
-        .pay-btn:active { transform: scale(0.97); }
-        .divider {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin: 16px 0;
-            color: #b0bcca;
-            font-size: 11px;
-        }
-        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: #e0e6ef; }
-        .app-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 8px;
-        }
-        .app-btn {
-            padding: 10px 6px;
-            border: 2px solid #e8edf5;
-            border-radius: 10px;
-            background: white;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 10px;
-            font-weight: 500;
-            color: #1a2332;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 3px;
-        }
-        .app-btn:active { transform: scale(0.95); background: #f0f4ff; }
-        .app-btn .icon { font-size: 22px; }
-        .upi-box {
-            margin-top: 16px;
-            background: #f0f4ff;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #e0e6ef;
-        }
-        .upi-box .upi-text {
-            font-family: monospace;
-            font-size: 11px;
-            word-break: break-all;
-            color: #1a2332;
-        }
-        .copy-btn {
-            background: none;
-            border: none;
-            color: #1a73e8;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: 500;
-            margin-top: 4px;
-        }
-        .footer { margin-top: 18px; font-size: 11px; color: #b0bcca; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #1a2332;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 13px;
-            display: none;
-            z-index: 999;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            max-width: 90%;
-        }
-        .toast.show { display: block; animation: slideUp 0.3s ease; }
-        @keyframes slideUp {
-            from { transform: translateX(-50%) translateY(20px); opacity: 0; }
-            to { transform: translateX(-50%) translateY(0); opacity: 1; }
-        }
-        .note { 
-            font-size: 11px; 
-            color: #e53935; 
-            background: #ffebee; 
-            padding: 8px 12px; 
-            border-radius: 8px; 
-            margin-top: 12px;
-            border-left: 3px solid #e53935;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+        body { background-color: #f1f5f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px; }
+        .payment-card { background: #ffffff; width: 100%; max-width: 400px; padding: 32px 24px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+        h2 { color: #0f172a; font-size: 24px; font-weight: 700; margin-bottom: 20px; }
+        
+        .input-wrapper { position: relative; margin-bottom: 24px; }
+        .input-wrapper span { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); font-size: 20px; font-weight: 600; color: #94a3b8; }
+        .input-wrapper input { width: 100%; padding: 14px 16px 14px 38px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 20px; font-weight: 700; color: #1e293b; outline: none; }
+        .input-wrapper input:focus { border-color: #4f46e5; }
+
+        .pay-btn { width: 100%; background: #4f46e5; color: #ffffff; padding: 16px; border: none; border-radius: 10px; font-size: 16px; font-weight: 600; cursor: pointer; display: block; }
+        .pay-btn:hover { background: #4338ca; }
+        .pay-btn:disabled { background: #94a3b8; cursor: not-allowed; }
+        .note { margin-top: 15px; font-size: 12px; color: #94a3b8; line-height: 1.4; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="logo">💳</div>
-    <h1>Pay Now</h1>
-    <p class="subtitle">Complete your payment securely</p>
-
-    <div class="merchant-box">
-        <div class="label">Receiving To</div>
-        <div class="name">Savitha K</div>
-        <div class="upi-id">paytmqr2810050501011r80bazrbfpc@paytm</div>
-        <span class="badge">✅ Merchant Verified</span>
+<div class="payment-card">
+    <h2>Tech in Market</h2>
+    
+    <div class="input-wrapper">
+        <span>₹</span>
+        <input type="number" id="amountInput" placeholder="Enter Amount" min="10" value="10">
     </div>
 
-    <div class="amount-section">
-        <div class="label">Amount</div>
-        <div class="amount"><span>₹</span> 1.00</div>
-        <div class="order-id">Order #fTrJCT66776959738303</div>
-    </div>
-
-    <!-- MAIN PAY BUTTON - Uses app-specific deep links -->
-    <button class="pay-btn" id="payBtn">🔵 Pay ₹1.00 via UPI</button>
-
-    <div class="divider">Quick Pay</div>
-
-    <div class="app-grid">
-        <button class="app-btn" onclick="payWith('gpay')"><span class="icon">🔵</span>GPay</button>
-        <button class="app-btn" onclick="payWith('phonepe')"><span class="icon">💜</span>PhonePe</button>
-        <button class="app-btn" onclick="payWith('paytm')"><span class="icon">💙</span>Paytm</button>
-        <button class="app-btn" onclick="payWith('whatsapp')"><span class="icon">💚</span>WhatsApp</button>
-        <button class="app-btn" onclick="payWith('amazon')"><span class="icon">🟠</span>Amazon</button>
-        <button class="app-btn" onclick="copyUPI()"><span class="icon">📋</span>Copy UPI</button>
-    </div>
-
-    <div class="upi-box">
-        <div class="upi-text">paytmqr2810050501011r80bazrbfpc@paytm</div>
-        <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
-    </div>
-
-    <div class="note">
-        ⚠️ If payment fails, scan the QR code from your UPI app or copy the UPI ID above.
-    </div>
-
-    <div class="footer">
-        <span>🔒 Secure</span>
-        <span>⚡ Instant</span>
-        <span>🔄 UPI</span>
-    </div>
+    <button class="pay-btn" id="payButton" onclick="payDirectViaUpiGateway()">Proceed to Pay</button>
+    <p class="note" id="statusMessage">Enter an amount (minimum ₹10) and click proceed to test your phone's native UPI app picker.</p>
 </div>
 
-<div class="toast" id="toast"></div>
-
 <script>
-    const CONFIG = {
-        vpa: 'paytmqr2810050501011r80bazrbfpc@paytm',
-        name: 'Savitha K',
-        amount: '1.00',
-        currency: 'INR',
-        orderId: 'fTrJCT66776959738303',
-        description: 'Payment for Order fTrJCT66776959738303'
-    };
+    // ⬇️ PLUG IN YOUR EXACT LIVE INSTAMOJO CREDENTIALS HERE ⬇️
+    const CLIENT_ID = "vCC5TaM9Pze1s0UQUcqeJozFxsuhqwSmpDJno9Rk";
+    const CLIENT_SECRET = "GNuQCY0n9Twyfg4zklLCLp0ejDucRYdOo2N4LngE56dUMUTr1OeFfRwwMkudPsi5CkQGmUAzEmC0qkvjYFAqb8ZNUcWQ1th3KibOw2Fix2omhehlKsnkmcDFOUdK07bz";
+    const API_KEY = "93c5befca61a5d9628a163ae0e0cd8a6";
+    const AUTH_TOKEN = "1586c873e445e67b0d86213901c2815";
 
-    // Build APP-SPECIFIC deep links (NOT generic upi://pay)
-    function buildDeepLink(app) {
-        let scheme = '';
-        let base = `?pa=${CONFIG.vpa}&pn=${encodeURIComponent(CONFIG.name)}&am=${CONFIG.amount}&cu=${CONFIG.currency}&tr=${CONFIG.orderId}&tn=${encodeURIComponent(CONFIG.description)}`;
+    async function payDirectViaUpiGateway() {
+        const amount = document.getElementById('amountInput').value;
+        const btn = document.getElementById('payButton');
+        const statusText = document.getElementById('statusMessage');
 
-        switch(app) {
-            case 'gpay':
-                scheme = 'tez://upi/pay';  // Google Pay uses tez:// scheme
-                break;
-            case 'phonepe':
-                scheme = 'phonepe://upi/pay';
-                break;
-            case 'paytm':
-                scheme = 'paytmmp://upi/pay';
-                break;
-            case 'whatsapp':
-                scheme = 'whatsapp://upi/pay';
-                break;
-            case 'amazon':
-                scheme = 'amazonpay://upi/pay';
-                break;
-            case 'generic':
-            default:
-                // Use app-specific fallback - try GPay first as most common
-                scheme = 'tez://upi/pay';
+        if (!amount || parseFloat(amount) < 10) {
+            alert("Minimum amount for Instamojo gateway processing is ₹10.");
+            return;
         }
-        return scheme + base;
-    }
 
-    function showToast(msg) {
-        let toast = document.getElementById('toast');
-        toast.textContent = msg;
-        toast.className = 'toast show';
-        clearTimeout(toast._timer);
-        toast._timer = setTimeout(() => { toast.className = 'toast'; }, 3500);
-    }
+        // Lock UI during API call execution
+        btn.disabled = true;
+        statusText.innerText = "Authenticating secure merchant session...";
 
-    function copyUPI() {
-        let text = CONFIG.vpa;
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-            navigator.clipboard.writeText(text)
-                .then(() => showToast('✅ UPI ID copied!'))
-                .catch(() => fallbackCopy(text));
-        } else {
-            fallbackCopy(text);
-        }
-    }
-
-    function fallbackCopy(text) {
-        let textarea = document.createElement('textarea');
-        textarea.value = text;
-        textarea.style.position = 'fixed';
-        textarea.style.opacity = '0';
-        document.body.appendChild(textarea);
-        textarea.select();
         try {
-            document.execCommand('copy');
-            showToast('✅ UPI ID copied!');
-        } catch(e) {
-            showToast('❌ Please copy manually');
-        }
-        document.body.removeChild(textarea);
-    }
+            // Step 1: Generate access token using OAuth2
+            const tokenParams = new URLSearchParams({
+                grant_type: 'client_credentials',
+                client_id: CLIENT_ID,
+                client_secret: CLIENT_SECRET
+            });
 
-    function payWith(app) {
-        let url = buildDeepLink(app);
-        let appNames = {
-            'gpay': 'Google Pay',
-            'phonepe': 'PhonePe',
-            'paytm': 'Paytm',
-            'whatsapp': 'WhatsApp Pay',
-            'amazon': 'Amazon Pay'
-        };
-        
-        showToast(`Opening ${appNames[app] || 'UPI'}...`);
-        
-        // Method 1: Direct navigation
-        try {
-            window.location.href = url;
-        } catch(e) {
-            // Method 2: Try with iframe (for some browsers)
-            try {
-                let iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = url;
-                document.body.appendChild(iframe);
-                setTimeout(() => document.body.removeChild(iframe), 3000);
-            } catch(e2) {
-                showToast('❌ Please install the UPI app');
-            }
-        }
-        
-        // Fallback message
-        setTimeout(() => {
-            showToast(`💡 Pay ₹${CONFIG.amount} to: ${CONFIG.vpa}`);
-        }, 3000);
-    }
-
-    // Main Pay button - tries GPay first, then PhonePe, then Paytm
-    document.getElementById('payBtn').addEventListener('click', function() {
-        let apps = ['gpay', 'phonepe', 'paytm'];
-        let attempted = 0;
-        
-        function tryNext() {
-            if (attempted >= apps.length) {
-                showToast('❌ No UPI app found. Please install GPay/PhonePe/Paytm');
-                return;
-            }
-            let app = apps[attempted];
-            let url = buildDeepLink(app);
-            let appNames = { 'gpay': 'Google Pay', 'phonepe': 'PhonePe', 'paytm': 'Paytm' };
-            showToast(`Opening ${appNames[app]}...`);
+            const tokenResponse = await fetch('https://api.instamojo.com/oauth2/token/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: tokenParams
+            });
             
-            try {
-                window.location.href = url;
-            } catch(e) {
-                attempted++;
-                setTimeout(tryNext, 500);
+            const tokenData = await tokenResponse.json();
+            const accessToken = tokenData.access_token;
+
+            if (!accessToken) {
+                throw new Error("Could not fetch Access Token. Check Client ID/Secret strings.");
             }
+
+            statusText.innerText = "Generating custom UPI payment link...";
+
+            // Step 2: Request the live link payload
+            const orderPayload = new URLSearchParams({
+                amount: parseFloat(amount).toFixed(2),
+                purpose: "Tech In Market Test Payment",
+                buyer_name: "Test Customer",
+                send_sms: "False",
+                send_email: "False",
+                redirect_url: window.location.href // Returns user back here when done
+            });
+
+            const orderResponse = await fetch('https://api.instamojo.com/v2/payment_requests/', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'X-Api-Key': API_KEY,
+                    'X-Auth-Token': AUTH_TOKEN
+                },
+                body: orderPayload
+            });
+
+            const orderData = await orderResponse.json();
+            const regularUrl = orderData.longurl;
+
+            if (!regularUrl) {
+                throw new Error("Failed to capture transaction mapping URL.");
+            }
+
+            statusText.innerText = "Launching phone UPI apps drawer...";
+
+            /* Step 3: The Magic Intent Transformation!
+               Replacing 'www.instamojo.com/' with 'www.instamojo.com/intent/' 
+               bypasses the gateway webpage entirely and directly prompts 
+               the smartphone to open Google Pay, PhonePe, or Paytm instantly.
+            */
+            const mobileIntentUrl = regularUrl.replace('www.instamojo.com/', 'www.instamojo.com/intent/');
+            
+            // Fire the application change sequence
+            window.location.href = mobileIntentUrl;
+
+        } catch (error) {
+            console.error(error);
+            alert("Transaction Setup Fault: " + error.message);
+            btn.disabled = false;
+            statusText.innerText = "Error encountered. Try again.";
         }
-        tryNext();
-        
-        // Fallback: show UPI ID after 4 seconds
-        setTimeout(() => {
-            showToast(`💡 Pay ₹${CONFIG.amount} to: ${CONFIG.vpa}`);
-        }, 4000);
-    });
-
-    // Detect platform
-    if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        showToast('📱 iOS: Use GPay or PhonePe buttons');
     }
-
-    console.log('UPI Deep Link Payment Page');
-    console.log('VPA:', CONFIG.vpa);
-    console.log('Amount: ₹' + CONFIG.amount);
 </script>
+
 </body>
 </html>
